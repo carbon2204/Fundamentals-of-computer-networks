@@ -23,14 +23,14 @@ def send_data():
         try:
             sent_message = "".join(send_char(char) for char in message)
             update_state(len(sent_message))
-            entry_message.set("")  # Очищаем поле ввода
+            entry_message.set("")  
         except serial.SerialException as e:
             messagebox.showerror("Ошибка отправки", f"Ошибка при отправке данных: {e}")
 
 
 def send_char(char):
-    ser1.write(char.encode('utf-8'))  # Преобразование символа в байты
-    time.sleep(0.1)  # Задержка между символами
+    ser1.write(char.encode('utf-8'))  
+    time.sleep(0.1)  
     return char
 
 
@@ -94,8 +94,8 @@ def close_ports():
 # Создаем главное окно
 root = Tk()
 root.title("COM-порты: Передача и приём данных")
-root.geometry("800x600")  # Изменение размеров окна
-root.configure(bg="#0D1B2A")  # Темно-синий цвет фона
+root.geometry("800x600")  
+root.configure(bg="#0D1B2A")  
 root.resizable(False, False)
 
 # Верхний фрейм для настроек направления и скорости
